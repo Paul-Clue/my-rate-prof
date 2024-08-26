@@ -1,0 +1,144 @@
+{
+  "reviews": [
+    {
+      "id": "1",
+      "professor": "Dr. John Smith",
+      "subject": "Computer Science",
+      "stars": 5,
+      "comment": "Dr. Smith is an outstanding professor who makes complex topics easy to understand. Highly recommended!"
+    },
+    {
+      "id": "2",
+      "professor": "Dr. Emily Johnson",
+      "subject": "Mathematics",
+      "stars": 4,
+      "comment": "Dr. Johnson explains concepts clearly and provides great support, but her exams are quite challenging."
+    },
+    {
+      "id": "3",
+      "professor": "Dr. Alan Brown",
+      "subject": "History",
+      "stars": 3,
+      "comment": "Dr. Brown is knowledgeable, but his lectures can be a bit dry. The course material is interesting, though."
+    },
+    {
+      "id": "4",
+      "professor": "Dr. Laura Williams",
+      "subject": "Physics",
+      "stars": 5,
+      "comment": "Dr. Williams is an excellent instructor. Her passion for physics is contagious, and she makes learning fun!"
+    },
+    {
+      "id": "5",
+      "professor": "Dr. Michael Davis",
+      "subject": "Chemistry",
+      "stars": 4,
+      "comment": "Dr. Davis is very thorough and ensures everyone understands the material. However, the pace of the class can be fast."
+    },
+    {
+      "id": "6",
+      "professor": "Dr. Sarah Miller",
+      "subject": "English Literature",
+      "stars": 4,
+      "comment": "Dr. Miller is a great professor who encourages deep thinking and discussion, but her grading is tough."
+    },
+    {
+      "id": "7",
+      "professor": "Dr. Richard Lee",
+      "subject": "Biology",
+      "stars": 3,
+      "comment": "Dr. Lee is very knowledgeable, but sometimes the lectures are too fast-paced. Overall, a solid professor."
+    },
+    {
+      "id": "8",
+      "professor": "Dr. Karen Taylor",
+      "subject": "Philosophy",
+      "stars": 5,
+      "comment": "Dr. Taylor encourages critical thinking and always makes the classes engaging and thought-provoking."
+    },
+    {
+      "id": "9",
+      "professor": "Dr. James White",
+      "subject": "Economics",
+      "stars": 4,
+      "comment": "Dr. White is a great professor, but the workload is heavy. Be prepared to study hard."
+    },
+    {
+      "id": "10",
+      "professor": "Dr. Patricia Moore",
+      "subject": "Sociology",
+      "stars": 5,
+      "comment": "Dr. Moore is incredibly supportive and always available for extra help. Her classes are insightful and engaging."
+    },
+    {
+      "id": "11",
+      "professor": "Dr. William Harris",
+      "subject": "Political Science",
+      "stars": 3,
+      "comment": "Dr. Harris knows his stuff, but the lectures can be a bit monotonous. The material is still valuable, though."
+    },
+    {
+      "id": "12",
+      "professor": "Dr. Barbara Clark",
+      "subject": "Art History",
+      "stars": 5,
+      "comment": "Dr. Clark brings art to life with her lectures. Her passion is evident and makes the class enjoyable."
+    },
+    {
+      "id": "13",
+      "professor": "Dr. Robert Martinez",
+      "subject": "Psychology",
+      "stars": 4,
+      "comment": "Dr. Martinez is a good professor, but his exams are difficult. Make sure to pay attention during lectures."
+    },
+    {
+      "id": "14",
+      "professor": "Dr. Linda Rodriguez",
+      "subject": "Anthropology",
+      "stars": 5,
+      "comment": "Dr. Rodriguez is fantastic! She is engaging and makes complex topics understandable. One of the best!"
+    },
+    {
+      "id": "15",
+      "professor": "Dr. David Anderson",
+      "subject": "Environmental Science",
+      "stars": 4,
+      "comment": "Dr. Anderson is passionate about the environment and it shows in his teaching. The class is informative but demanding."
+    },
+    {
+      "id": "16",
+      "professor": "Dr. Jennifer Thompson",
+      "subject": "Linguistics",
+      "stars": 4,
+      "comment": "Dr. Thompson is very knowledgeable, but sometimes the lectures can be a bit too technical. Overall, a good class."
+    },
+    {
+      "id": "17",
+      "professor": "Dr. Mark Lewis",
+      "subject": "Physics",
+      "stars": 3,
+      "comment": "Dr. Lewis is a decent professor, but his teaching style is a bit dry. The material is challenging but important."
+    },
+    {
+      "id": 18,
+      "professor": "Dr. Susan Walker",
+      "subject": "Literature",
+      "stars": 5,
+      "comment": "Dr. Walker is an excellent professor. Her lectures are captivating and she always encourages class participation."
+    },
+    {
+      "id": "19",
+      "professor": "Dr. Charles Wilson",
+      "subject": "Chemistry",
+      "stars": 4,
+      "comment": "Dr. Wilson is very clear in his explanations, but the course requires a lot of outside study. Overall, a solid professor."
+    },
+    {
+      "id": "20",
+      "professor": "Dr. Nancy Young",
+      "subject": "History",
+      "stars": 4,
+      "comment": "Dr. Young is a good professor, but her lectures can be a bit dense. The content is fascinating, though."
+    }
+  ]
+}
