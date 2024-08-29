@@ -68,7 +68,7 @@ export default function Home() {
           <Typography
             sx={{
               color: 'whitesmoke',
-              fontSize: '2em',
+              fontSize: '4em',
               fontWeight: 'bold',
             }}
           >
@@ -79,7 +79,7 @@ export default function Home() {
            sx={{
             position: 'absolute',
             left: '10%',
-            top: '50%',
+            top: '60%',
           }}
         >
           <Image
@@ -93,7 +93,7 @@ export default function Home() {
            sx={{
             position: 'absolute',
             left: '10%',
-            top: '10%',
+            top: '15%',
           }}
         >
           <Image
@@ -107,7 +107,7 @@ export default function Home() {
            sx={{
             position: 'absolute',
             left: '20%',
-            top: '20%',
+            top: '25%',
           }}
         >
           <Image
@@ -120,7 +120,7 @@ export default function Home() {
         <Box
           sx={{
             position: 'absolute',
-            left: '67%',
+            left: '70%',
             top: '20%',
           }}
         >
@@ -133,7 +133,7 @@ export default function Home() {
         </Box>
         <Stack
           direction={'column'}
-          width='500px'
+          width='600px'
           height='700px'
           border='5px solid silver'
           p={2}
