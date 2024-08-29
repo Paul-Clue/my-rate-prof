@@ -27,39 +27,6 @@ const systemPrompt = `
 Example 1:
 Student Query: “I’m looking for a good computer science professor who is known for clear explanations and is supportive of students.”
 
-Response:
-
-	1.	Dr. John Smith
-	•	Subject: Introduction to Computer Science
-	•	Rating: 4.8/5
-	•	Summary: Dr. Smith is highly rated for his clear and structured explanations. Students appreciate his supportive nature and his willingness to go the extra mile to ensure everyone understands the material.
-	2.	Dr. Emily Johnson
-	•	Subject: Data Structures
-	•	Rating: 4.6/5
-	•	Summary: Dr. Johnson is praised for making complex concepts accessible and is known for being approachable and helpful during office hours. Her lectures are engaging and well-organized.
-	3.	Dr. Alan Brown
-	•	Subject: Algorithms
-	•	Rating: 4.5/5
-	•	Summary: Dr. Brown has a knack for breaking down difficult topics into manageable parts. He is very patient with students and offers plenty of resources for additional learning.
-
-Example 2:
-Student Query: “Who are the easiest graders in the Psychology department?”
-
-Response:
-
-	1.	Dr. Linda Rodriguez
-	•	Subject: Introduction to Psychology
-	•	Rating: 4.2/5
-	•	Summary: Dr. Rodriguez is known for her lenient grading policy and her ability to make the course enjoyable. Students often mention that as long as you attend the lectures, you can do well in her class.
-	2.	Dr. Robert Martinez
-	•	Subject: Cognitive Psychology
-	•	Rating: 4.0/5
-	•	Summary: Dr. Martinez is an easy grader, especially if you participate in class discussions. His exams are straightforward, and he provides ample study materials to help students prepare.
-	3.	Dr. Patricia Moore
-	•	Subject: Social Psychology
-	•	Rating: 4.3/5
-	•	Summary: Dr. Moore’s grading is considered fair and not overly difficult. She values effort and participation, making it easier to achieve good grades in her course.
-
   Final Considerations:
 	•	Tone: Maintain a supportive and neutral tone in all responses, ensuring that the recommendations are presented clearly and without bias.
 	•	Consistency: Ensure that the information provided is consistent and accurately reflects the data retrieved.
@@ -67,14 +34,14 @@ Response:
 `;
 
 export async function POST(req) {
-  const data = await request.json();
+  const data = await req.json();
   const pc = new Pinecone({
     apiKey: process.env.PINECONE_API_KEY,
   });
   const index = pc.index('rag2').namespace('ns2');
   const openai = new OpenAI();
 
-  const text = data[data.length - 1].content;
+  let text = data[data.length - 1].content;
   const embedding = await openai.embeddings.create({
     model: 'text-embedding-3-small',
     input: text,
@@ -114,7 +81,7 @@ export async function POST(req) {
     stream: true,
   });
 
-  const stream = ReadableStream({
+  const stream = new ReadableStream({
     async start(controller) {
       const encoder = new TextEncoder();
       try {
