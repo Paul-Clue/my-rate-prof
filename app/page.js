@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { Box, Button, Stack, TextField } from '@mui/material';
+import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 
 export default function Home() {
@@ -58,14 +58,91 @@ export default function Home() {
         flexDirection='column'
         justifyContent='center'
         alignItems='center'
+        backgroundColor='black'
       >
+        <Box
+          sx={{
+            my: 5,
+          }}
+        >
+          <Typography
+            sx={{
+              color: 'whitesmoke',
+              fontSize: '2em',
+              fontWeight: 'bold',
+            }}
+          >
+            Find the right professor and class for you!
+          </Typography>
+        </Box>
+        <Box
+           sx={{
+            position: 'absolute',
+            left: '10%',
+            top: '50%',
+          }}
+        >
+          <Image
+            src='/pi.png'
+            alt='A group of multiracial college professors'
+            width={200}
+            height={200}
+          />
+        </Box>
+        <Box
+           sx={{
+            position: 'absolute',
+            left: '10%',
+            top: '10%',
+          }}
+        >
+          <Image
+            src='/globe.png'
+            alt='A group of multiracial college professors'
+            width={200}
+            height={200}
+          />
+        </Box>
+        <Box
+           sx={{
+            position: 'absolute',
+            left: '20%',
+            top: '20%',
+          }}
+        >
+          <Image
+            src='/books.png'
+            alt='A group of multiracial college professors'
+            width={200}
+            height={200}
+          />
+        </Box>
+        <Box
+          sx={{
+            position: 'absolute',
+            left: '67%',
+            top: '20%',
+          }}
+        >
+          <Image
+            src='/professors.png'
+            alt='A group of multiracial college professors'
+            width={300}
+            height={300}
+          />
+        </Box>
         <Stack
           direction={'column'}
           width='500px'
           height='700px'
-          border='1px solid black'
+          border='5px solid silver'
           p={2}
           spacing={3}
+          borderRadius={8}
+          mb={5}
+          sx={{
+            backgroundColor: 'whitesmoke',
+          }}
         >
           <Stack
             direction={'column'}
@@ -102,6 +179,28 @@ export default function Home() {
               label='Message'
               fullWidth
               value={message}
+              sx={{
+                '& .MuiInputLabel-root': {
+                  color: 'rgb(156, 39, 176)', 
+                },
+                '& .MuiInputLabel-root.Mui-focused': {
+                  color: 'rgb(156, 39, 176)',
+                },
+                '& .MuiOutlinedInput-root': {
+                  '& fieldset': {
+                    borderColor: 'rgb(156, 39, 176)',
+                  },
+                  '&:hover fieldset': {
+                    borderColor: 'blue', 
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: 'rgb(156, 39, 176)',
+                  },
+                },
+                '& .MuiInputBase-input': {
+                  color: 'whitesmoke',
+                },
+              }}
               onChange={(e) => setMessage(e.target.value)}
             />
             <Button variant='contained' onClick={sendMessage}>
