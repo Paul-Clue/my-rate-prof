@@ -53,8 +53,10 @@ export default function Home() {
     <>
       <Box
         width='100vw'
-        height='100vh'
+        // height='100%'
+        sx= {{minHeight: '100vh',}}
         display='flex'
+   
         flexDirection='column'
         justifyContent='center'
         alignItems='center'
@@ -62,7 +64,9 @@ export default function Home() {
       >
         <Box
           sx={{
-            my: 5,
+            mt: 2,
+            mb: 1,
+            display: {xs: 'none', md: 'block'}
           }}
         >
           <Typography
@@ -76,66 +80,104 @@ export default function Home() {
           </Typography>
         </Box>
         <Box
-           sx={{
-            position: 'absolute',
-            left: '10%',
-            top: '60%',
-          }}
-        >
-          <Image
-            src='/pi.png'
-            alt='A group of multiracial college professors'
-            width={200}
-            height={200}
-          />
-        </Box>
-        <Box
-           sx={{
-            position: 'absolute',
-            left: '10%',
-            top: '15%',
-          }}
-        >
-          <Image
-            src='/globe.png'
-            alt='A group of multiracial college professors'
-            width={200}
-            height={200}
-          />
-        </Box>
-        <Box
-           sx={{
-            position: 'absolute',
-            left: '20%',
-            top: '25%',
-          }}
-        >
-          <Image
-            src='/books.png'
-            alt='A group of multiracial college professors'
-            width={200}
-            height={200}
-          />
-        </Box>
-        <Box
           sx={{
-            position: 'absolute',
-            left: '70%',
-            top: '20%',
+            mt: 2,
+            mb: 1,
+            display: {xs: 'block', md: 'none'}
           }}
         >
-          <Image
-            src='/professors.png'
-            alt='A group of multiracial college professors'
-            width={300}
-            height={300}
-          />
+          <Typography
+            sx={{
+              color: 'whitesmoke',
+              fontSize: '2em',
+              fontWeight: 'bold',
+              textAlign: 'center'
+            }}
+          >
+            Find the right professor and class for you!
+          </Typography>
+        </Box>
+        <Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              left: '10%',
+              top: '60%',
+              width: 50,
+              height: 50,
+              display: {xs: 'none', md: 'block'}
+            }}
+          >
+            <Image
+              src='/pi.png'
+              alt='The mathematical PI symbol'
+              // width={50}
+              // height={50}
+              layout='fill' 
+              objectFit='cover'
+            />
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              left: '2%',
+              top: '35%',
+              width: 50,
+              height: 50,
+              display: {xs: 'none', md: 'block'}
+            }}
+          >
+            <Image
+              src='/globe.png'
+              alt='The globe'
+              // width={50}
+              // height={50}
+              layout='fill' 
+              objectFit='cover'
+            />
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              left: '20%',
+              top: '25%',
+              width: 50,
+              height: 50,
+              display: {xs: 'none', md: 'block'}
+            }}
+          >
+            <Image
+              src='/books.png'
+              alt='A stack of colorful books'
+              // width={50}
+              // height={50}
+              layout='fill' 
+              objectFit='cover'
+            />
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              left: '80%',
+              top: '30%',
+              width: 150,
+              height: 150,
+              display: {xs: 'none', md: 'block'}
+            }}
+          >
+            <Image
+              src='/professors.png'
+              alt='A group of multiracial college professors'
+              width={150}
+              height={150}
+            />
+          </Box>
         </Box>
         <Stack
           direction={'column'}
-          width='600px'
-          height='700px'
-          border='5px solid silver'
+          width='500px'
+          height='600px'
+          border='5px solid rgb(46, 118, 210)'
           p={2}
           spacing={3}
           borderRadius={8}
@@ -181,7 +223,7 @@ export default function Home() {
               value={message}
               sx={{
                 '& .MuiInputLabel-root': {
-                  color: 'rgb(156, 39, 176)', 
+                  color: 'rgb(156, 39, 176)',
                 },
                 '& .MuiInputLabel-root.Mui-focused': {
                   color: 'rgb(156, 39, 176)',
@@ -191,14 +233,14 @@ export default function Home() {
                     borderColor: 'rgb(156, 39, 176)',
                   },
                   '&:hover fieldset': {
-                    borderColor: 'blue', 
+                    borderColor: 'blue',
                   },
                   '&.Mui-focused fieldset': {
                     borderColor: 'rgb(156, 39, 176)',
                   },
                 },
                 '& .MuiInputBase-input': {
-                  color: 'whitesmoke',
+                  color: 'black',
                 },
               }}
               onChange={(e) => setMessage(e.target.value)}
