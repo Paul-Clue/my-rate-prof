@@ -49,6 +49,11 @@ export default function Home() {
       });
     });
   };
+  const formatMessage = (text) => {
+    return text.split('\n').map((line, index) => (
+      <p key={index}>{line}</p>
+    ));
+  };
   return (
     <>
       <Box
@@ -211,7 +216,8 @@ export default function Home() {
                   borderRadius={16}
                   p={3}
                 >
-                  {message.content}
+                  {/* section */}
+                  {message.role === 'assistant' ? formatMessage(message.content): message.content}
                 </Box>
               </Box>
             ))}
