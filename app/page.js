@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Home() {
   const [messages, setMessages] = useState([
@@ -12,6 +13,8 @@ export default function Home() {
     },
   ]);
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+
   const sendMessage = async () => {
     setMessages((messages) => [
       ...messages,
@@ -19,6 +22,8 @@ export default function Home() {
       { role: 'assistant', content: '' },
     ]);
     setMessage('');
+    setLoading(true);
+
     const response = fetch('/api/chat', {
       method: 'POST',
       headers: {
@@ -32,6 +37,7 @@ export default function Home() {
 
       return reader.read().then(function processText({ done, value }) {
         if (done) {
+          setLoading(false);
           return result;
         }
         const text = decoder.decode(value || new Uint8Array(), {
@@ -50,18 +56,15 @@ export default function Home() {
     });
   };
   const formatMessage = (text) => {
-    return text.split('\n').map((line, index) => (
-      <p key={index}>{line}</p>
-    ));
+    return text.split('\n').map((line, index) => <p key={index}>{line}</p>);
   };
   return (
     <>
       <Box
         width='100vw'
         // height='100%'
-        sx= {{minHeight: '100vh',}}
+        sx={{ minHeight: '100vh' }}
         display='flex'
-   
         flexDirection='column'
         justifyContent='center'
         alignItems='center'
@@ -71,7 +74,7 @@ export default function Home() {
           sx={{
             mt: 2,
             mb: 1,
-            display: {xs: 'none', md: 'block'}
+            display: { xs: 'none', md: 'block' },
           }}
         >
           <Typography
@@ -83,12 +86,23 @@ export default function Home() {
           >
             Find the right professor and class for you!
           </Typography>
+          <Typography
+            sx={{
+              color: 'whitesmoke',
+              fontSize: '1em',
+              fontWeight: 'bold',
+              textAlign: 'center'
+            }}
+          >
+            {'\u{1F600}'} Ask questions about the professors or their classed.
+            For example &quot;What are the names of all the professors?&quot;{'\u{1F600}'}
+          </Typography>
         </Box>
         <Box
           sx={{
             mt: 2,
             mb: 1,
-            display: {xs: 'block', md: 'none'}
+            display: { xs: 'block', md: 'none' },
           }}
         >
           <Typography
@@ -96,7 +110,7 @@ export default function Home() {
               color: 'whitesmoke',
               fontSize: '2em',
               fontWeight: 'bold',
-              textAlign: 'center'
+              textAlign: 'center',
             }}
           >
             Find the right professor and class for you!
@@ -110,7 +124,7 @@ export default function Home() {
               top: '60%',
               width: 50,
               height: 50,
-              display: {xs: 'none', md: 'block'}
+              display: { xs: 'none', md: 'block' },
             }}
           >
             <Image
@@ -118,7 +132,7 @@ export default function Home() {
               alt='The mathematical PI symbol'
               // width={50}
               // height={50}
-              layout='fill' 
+              layout='fill'
               objectFit='cover'
             />
           </Box>
@@ -129,7 +143,7 @@ export default function Home() {
               top: '35%',
               width: 50,
               height: 50,
-              display: {xs: 'none', md: 'block'}
+              display: { xs: 'none', md: 'block' },
             }}
           >
             <Image
@@ -137,7 +151,7 @@ export default function Home() {
               alt='The globe'
               // width={50}
               // height={50}
-              layout='fill' 
+              layout='fill'
               objectFit='cover'
             />
           </Box>
@@ -148,7 +162,7 @@ export default function Home() {
               top: '25%',
               width: 50,
               height: 50,
-              display: {xs: 'none', md: 'block'}
+              display: { xs: 'none', md: 'block' },
             }}
           >
             <Image
@@ -156,7 +170,7 @@ export default function Home() {
               alt='A stack of colorful books'
               // width={50}
               // height={50}
-              layout='fill' 
+              layout='fill'
               objectFit='cover'
             />
           </Box>
@@ -167,7 +181,7 @@ export default function Home() {
               top: '30%',
               width: 150,
               height: 150,
-              display: {xs: 'none', md: 'block'}
+              display: { xs: 'none', md: 'block' },
             }}
           >
             <Image
@@ -217,10 +231,22 @@ export default function Home() {
                   p={3}
                 >
                   {/* section */}
-                  {message.role === 'assistant' ? formatMessage(message.content): message.content}
+                  {message.role === 'assistant'
+                    ? formatMessage(message.content)
+                    : message.content}
                 </Box>
               </Box>
             ))}
+            {loading && (
+              <Box
+                display='flex'
+                justifyContent='center'
+                alignItems='center'
+                mt={2}
+              >
+                <CircularProgress />
+              </Box>
+            )}
           </Stack>
           <Stack direction={'row'} spacing={2}>
             <TextField
@@ -251,7 +277,11 @@ export default function Home() {
               }}
               onChange={(e) => setMessage(e.target.value)}
             />
-            <Button variant='contained' onClick={sendMessage}>
+            <Button
+              variant='contained'
+              onClick={sendMessage}
+              disabled={loading ? true : false}
+            >
               Send
             </Button>
           </Stack>
